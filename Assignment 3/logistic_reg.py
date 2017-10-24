@@ -53,7 +53,7 @@ def buildGraph(l_rate, lam):
     logits = tf.matmul(X, W) + b
 
     # loss function
-    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits, y_target) + lam * tf.nn.l2_loss(W))
+    cost = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=logits, labels=y_target) + lam * tf.nn.l2_loss(W))
 
     # Error definition
     # cost = tf.reduce_mean(-tf.reduce_sum(y * tf.log(logits), reduction_indices=1))+tf.reduce_sum(tf.square(W)) * Lambda / 2
